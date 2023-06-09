@@ -41,9 +41,9 @@ def draw_bboxes(image, outputs):
         if score > threshold:
             x1, y1, x2, y2 = [int(i) for i in bbox]
             
-            class_name, color = classes[pred].items()
-            cv2.rectangle(image, (x1, y1), (x2, y2), color, 5)
-            cv2.putText(image, class_name, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 3)
+            color = classes[pred]
+            cv2.rectangle(image, (x1, y1), (x2, y2), color, 1)
+            cv2.putText(image, pred, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 3)
 
 
     return image
